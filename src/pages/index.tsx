@@ -10,9 +10,12 @@ import { Error } from '../components/Error';
 
 const fetchImages = ({ pageParam = null }) => {
   if (pageParam) {
-    return api
-      .get(`/api/images?after=${pageParam}`)
-      .then(response => response.data);
+    return (
+      api
+        .get(`/api/images`)
+        // .get(`/api/images?after=${pageParam}`)
+        .then(response => response.data)
+    );
   }
   return api.get(`/api/images`).then(response => response.data);
 };
